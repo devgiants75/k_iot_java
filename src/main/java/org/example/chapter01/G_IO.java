@@ -40,7 +40,7 @@ public class G_IO {
         Scanner iotScanner = new Scanner(System.in);
 
         // 2) 스캐너 실행
-        // - 스캐너명.next(); - 입력 내용을 문자열로 반환
+        // - 스캐너명.next(); - 입력 내용을 문자열로 반환 (개행 문자 인식 X)
         // - 스캐너명.nextLine(); - 입력 후의 엔터까지 전체 라인을 문자열로 반환
 
         // +) 스캐너명.next데이터타입(); : 각 타입의 데이터를 입력받을 수 있음
@@ -52,11 +52,36 @@ public class G_IO {
         System.out.println("키를 입력해주세요.");
         int height = iotScanner.nextInt();
 
+        // == 개행 문자 처리 == //
+        iotScanner.nextLine(); // 버퍼처리!! (nextInt() 후에 남아있는 개행문자 처리)
+
         System.out.println("이름을 입력해주세요.");
         String name = iotScanner.nextLine();
 
         System.out.println("나이: " + age); // 줄 바꿈: alt + shift + 방향키
         System.out.println("키: " + height);
         System.out.println("이름: " + name);
+
+        // cf) 개행 문자(Enter)
+        // : 줄을 바꿀 때 사용되는 특수 문자
+        // : 사용자가 Enter 키를 입력하면 개행문자가 입력됨
+
+        // 1) nextInt(), nextDouble()은 숫자만 가져감
+        //      - next + 데이터타입()은 해당 데이터만 인식!
+
+        // 2) nextLine()은 줄 전체를 가져감
+        //      [문제 상황]
+        //      - 키(height) 입력 시 실제 Scanner 내부에는 키값 + 개행문자가 저장
+        //      - nextInt()에서 키값만 가져가고 개행문자는 그대로 버퍼에 남김
+        //      - nextLine()은 사용자의 입력값을 기다리지 않고 빈 문자열(개행문자)를 담고 종료
+
+        // == 스캐너 종료 방법 == //
+        // : 스캐너 사용 후 메모리 최적화를 위해 스캐너 종료
+        // - 스캐너명.close();
+
+        iotScanner.close();
+
+        // 스캐너 종료 이후 호출 시 오류 발생!
+        iotScanner.nextLine(); // 스캐너 종료 후 접근 불가
     }
 }
