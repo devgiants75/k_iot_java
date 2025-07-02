@@ -84,10 +84,22 @@ public class A_If {
         // 2. (x, y) 좌표가 제 1, 2, 3, 4 사분면 중 어느 위치에 있는지 검사
         // >> 조건문
 
-        // 3. 각 분기에 위치할 경우 functionScope 변수에 몇 사분면인지 할당
-        // EX) functionScope = "제1사분면"
+        // 3. 각 분기에 위치할 경우 functionScope 변수에 몇 사분면인지 (재)할당
+        // EX) functionScope = "제1사분면";
 
         // 4. 조건문 이행 완료 시
         // "결과: " + functionScope 출력
+
+        // == 풀이 == //
+        // 1. 각 조건식에서 저장할 문자열값(사분면의 위치)을 담을 변수 선언
+        String functionScope = null; // String과 같은 참조 자료형은 기본값(비워져 있음)을 null로 표시
+
+        // 2. 스캐너 생성
+
+        // 3. 조건문 작성
+
+        // 4. functionScope 값 출력
+
+        // 5. 스캐너 종료
     }
 }
