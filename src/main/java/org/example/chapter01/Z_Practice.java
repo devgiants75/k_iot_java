@@ -1,5 +1,7 @@
 package org.example.chapter01;
 
+import java.util.Scanner;
+
 public class Z_Practice {
     public static void main(String[] args) {
         /*
@@ -25,5 +27,33 @@ public class Z_Practice {
             평균: 85.7점
             판정: 합격
         */
+
+        Scanner sc = new Scanner(System.in);
+
+        // 이름과 점수 입력
+        System.out.print("이름: ");
+        String name = sc.nextLine();
+
+        System.out.print("국어 점수: ");
+        int korean = sc.nextInt();
+
+        System.out.print("영어 점수: ");
+        int english = sc.nextInt();
+
+        System.out.print("수학 점수: ");
+        int math = sc.nextInt();
+
+        // 총점, 평균 계산
+        int total = korean + english + math;
+        double average = total / 3.0;
+
+        // 합격 여부 판점 (세 과목 모두 60점 이상)
+        String result = (korean >= 60 && english >= 60 && math >= 60) ? "합격" : "불합격";
+
+        // 출력
+        System.out.println("[이름: " + name + "]");
+        System.out.println("총점: " + total + "점");
+        System.out.println("평균: " + average);
+        System.out.println("합격 여부: " + result);
     }
 }
