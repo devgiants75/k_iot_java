@@ -51,5 +51,40 @@ public class F_Conversion {
         int bb = (int)aa;
         short cc = (short)bb;
         byte dd = (byte)cc;
+
+        // == 문자(char) 자료형의 형 변환 == //
+
+        // cf) 유니코드(Unicode)
+        // : 전 세계의 모든 문자를 하나의 숫자(코드 값)로 표현하는 국제 표준
+        // - 유니코드 이전은 각 국가에서 나라별 문자 인코딩 방식 사용 (영어: 아스키, 한국어: EUC-KR)
+        // - 웹에서는 주로 UTF-8이라는 유니코드 형식을 사용
+        // - 이모지까지 코드값으로 변환 가능
+        // EX) 문자마다 고유한 숫자(코드)가 정해져 있음: 'A' == 65
+
+        // 1) char(문자)를 숫자로 변환
+        // : 문자의 유니코드 값으로 변환
+        char letter = 'A';
+        int unicodeLetter = letter;
+
+        System.out.println(unicodeLetter); // 65
+
+        char c1 = 'a'; // 문자 그대로
+        char c2 = 97; // 숫자로 넣기 (97은 'a'의 유니코드 값)
+        char c3 = '\u0061'; // 유니코드 값을 16진수로 표현한 문자
+
+        // 줄 복사: ctrl + d
+        // 같은 문자 'a'를 다양한 방식으로 출력
+        System.out.println(c1);
+        System.out.println(c2);
+        System.out.println(c3);
+
+        // 숫자(int)를 문자(char)로 변환
+        int numberChar = 66;
+        char letter66 = (char)numberChar; // 명시적, 강제 형 변환
+
+        System.out.println(letter66); // B
+
+        // = char는 문자이지만, 내부적으로는 유니코드(숫자)로 처리
+        // = 문자와 숫자 간의 변환은 형 변환 형식을 그대로 사용
     }
 }
