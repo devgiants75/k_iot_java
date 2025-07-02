@@ -14,6 +14,8 @@ package org.example.chapter02;
 // - for, while, do while
 // +) continue, break
 
+import java.util.Scanner;
+
 public class A_If {
     public static void main(String[] args) {
         // 1. if문 (만약 ~라면) / else문 (그 밖에)
@@ -95,11 +97,29 @@ public class A_If {
         String functionScope = null; // String과 같은 참조 자료형은 기본값(비워져 있음)을 null로 표시
 
         // 2. 스캐너 생성
+        Scanner sc = new Scanner(System.in);
+        System.out.println("x: ");
+        int x = sc.nextInt();
+
+        System.out.println("y: ");
+        int y = sc.nextInt();
 
         // 3. 조건문 작성
+        if (x > 0 && y > 0) {
+            // x, y가 모두 양수: 제 1사분면
+            functionScope = "제1사분면";
+        } else if (x < 0 && y > 0) {
+            functionScope = "제2사분면";
+        } else if (x < 0 && y < 0) {
+            functionScope = "제3사분면";
+        } else {
+            functionScope = "제4사분면";
+        }
 
         // 4. functionScope 값 출력
+        System.out.println("결과: " + functionScope);
 
         // 5. 스캐너 종료
+        sc.close();
     }
 }
