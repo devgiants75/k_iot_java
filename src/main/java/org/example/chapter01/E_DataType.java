@@ -1,6 +1,7 @@
 package org.example.chapter01;
 
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 public class E_DataType {
     public static void main(String[] args) {
@@ -108,6 +109,7 @@ public class E_DataType {
         // << 실습 >> //
         // : 학생 이름, 학생 나이, 학생 키, 학생 성별('M', 'F' - 단일 문자), 학생 여부
         //      변수 선언과 본인의 데이터로 초기화
+
         String studentName = "이승아";
         int studentAge = 29;
         char studentGender = 'F';
@@ -116,6 +118,11 @@ public class E_DataType {
         // String studentName = "이도경";
         // 하나의 스코프(영역) 내에서는 동일한 변수명 사용 불가!
         // : 스코프는 {}로 구분
+        Scanner sc = new Scanner(System.in);
+        String a= sc.nextLine();
+        System.out.println(a);
+
+
     }
     // 스코프가 다르면 동일한 변수명 사용 가능!
     String studentName = "이도경";
