@@ -102,7 +102,6 @@ public class A_Array { // 클래스명 == 파일명 (파일명은 대문자로 �
         // > 참조 타입: 주소값이 저장
         // > 모든 요소는 같은 자료형
 
-
         // cf) 참조 자료형의 출력
         // : 자바에서 '객체'를 sout으로 출력하면 내부적으로 객체.toString() 기능을 호출
         // > 모든 참조 자료형의 집합체
@@ -136,5 +135,33 @@ public class A_Array { // 클래스명 == 파일명 (파일명은 대문자로 �
         fruits[1] = "오렌지";
         System.out.println(fruits[0]); // 사과
         System.out.println(fruits[1]); // 오렌지
+
+        // == 배열 요소 삭제 == //
+        // : 삭제 기능을 담당하는 문법 X
+        // > 삭제할 요소를 제외한 나머지 요소를 '새로운 배열'로 복사(옮기기)
+
+        int[] original = { 1, 2, 3, 4 }; // 길이 4
+        int removeIndex = 2; // 제거할 요소의 인덱스 번호
+
+        int[] newArray = new int[original.length - 1]; // 길이 3
+
+        int k = 0; // 새로운 배열의 인덱스 번호
+
+        for (int index = 0; index < original.length; index++) {
+            // 배열 요소의 개수(길이)만큼 반복
+            // for 문 내에서 반복 중 removeIndex와 index 번호가 일치하는 경우
+            // : 해당 index 번호값은 새로운 배열에 할당하지 않고 다음 조건으로 이동
+            if (index == removeIndex) {
+                continue;
+            }
+            newArray[k++] = original[index];
+            // k, index
+            // newArray[0] = original[0]
+            // newArray[1] = original[1]
+            // newArray[2] = original[3]
+        }
+        System.out.println(newArray[0]); // 1
+        System.out.println(newArray[1]); // 2
+        System.out.println(newArray[2]); // 4
     }
 }
