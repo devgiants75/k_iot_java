@@ -1,5 +1,7 @@
 package org.example.chapter02;
 
+import java.util.Scanner;
+
 public class D_While {
     public static void main(String[] args) {
         // === while 문 === //
@@ -93,5 +95,28 @@ public class D_While {
         // : 조건 검사 시점 - 실행 후 검사
         // : 최소 실행 횟수 - 1번
 
+        // == 예제 == //
+        // : 사용자의 입력을 받아 1 ~ 10 사이의 숫자가 입력될 때까지 반복
+        // : do-while 문으로 작성
+
+        Scanner sc = new Scanner(System.in);
+
+        int inputNumber;
+
+        do {
+            System.out.println("1 부터 10 사이의 숫자를 입력하세요 :)");
+            inputNumber = sc.nextInt();
+        } while (inputNumber < 1 || inputNumber > 10); // 1 ~ 10 사이인 경우 반복문 종료
+
+        System.out.println("올바른 숫자: " + inputNumber);
+
+        // cf) while 문은 반복 전에 조건을 검사하기 때문에, 초기 입력 코드를 반복문 밖에 따로 작성
+        System.out.println("1 ~ 10 사이의 숫자를 입력하세요");
+        inputNumber = sc.nextInt(); // 조건 검사 전 입력을 받기 위한 코드 중복 발생
+
+        while (inputNumber < 1 || inputNumber > 10) {
+            System.out.println("다시 입력하세요. (1 ~ 10)");
+            inputNumber = sc.nextInt();
+        }
     }
 }
