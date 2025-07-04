@@ -1,24 +1,34 @@
+// Gradle 내에 Java 플러그인 사용 선언
+// : Java 컴파일, 테스트, JAR 생성 등 가능
 plugins {
     id 'java'
 }
 
+// JAVA 관련 설정 지정 블록
 java {
+    // JAVA 소스 코드 호환 버전 설정
     sourceCompatibility = JavaVersion.VERSION_17
+    // 컴파일된 클래스 파일의 자바 호환 버전 설정
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+// 프로젝트 그룹명 & 버전 설정
 group = 'org.example'
-version = '1.0-SNAPSHOT'
+version = '1.0-SNAPSHOT' // SNAPSHOT: 개발 중인 최신 상태의 버전 (특정 시점에 스토리지에 저장된 파일의 현재 상태)
 
+// 외부 라이브러리를 가져올 저장소 설정
+// : 중앙 저장소(Maven Central) 사용 명시
 repositories {
     mavenCentral()
 }
 
+// 프로젝트에서 사용할 의존성(라이브러리) 명시 블록
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+// 테스트 관련 설정 정의
 test {
     useJUnitPlatform()
 }
