@@ -31,7 +31,7 @@ class _Child extends _Parent {
 
 public class Z_Coding {
     public static void main(String[] args) {
-        new Child();
+        new _Child();
         System.out.println(_Parent.total);
     }
 }
