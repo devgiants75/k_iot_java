@@ -48,6 +48,19 @@ class BaseballPlayer {
 
 public class E_Practice {
     public static void main(String[] args) {
+        // 인스턴스 생성
+        BaseballPlayer player1 = new BaseballPlayer("김태양", 0.325, 16);
+        BaseballPlayer player2 = new BaseballPlayer("배혜진", 0.295, 20);
+        BaseballPlayer player3 = new BaseballPlayer("최다영", 0.301, 11);
+        BaseballPlayer player4 = new BaseballPlayer("이상은", 0.292, 21);
 
+        System.out.println("총 생성된 선수의 수: " + BaseballPlayer.playerCount); // 총 생성된 선수의 수: 4
+
+        player2.updateStatus(0.312, 22);
+        System.out.println(player2.battingAverage); // 0.312
+        System.out.println(player2.homeRuns); // 22
+
+        System.out.println(BaseballPlayer.evaluateHomeRun(player3.homeRuns)); // 홈런상 후보에 등록될 수 없습니다.
+        System.out.println(BaseballPlayer.evaluateHomeRun(player4.homeRuns)); // 홈런상 후보! 축하드립니다!
     }
 }
