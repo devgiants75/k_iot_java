@@ -111,8 +111,31 @@ public class StudentManagementApp {
         System.out.println(studentId + " 해당 ID의 학생을 찾을 수 없습니다.");
     }
 
-
+    // main 메서드
+    // : 프로그램 진입점을 제공
+    // > public static void main(String[] args) 형식이어야 만 실행 가능
+    // > JVM은 main 메서드가 없을 경우 해당 파일을 실행 X
     public static void main(String[] args) {
 
+        // 학생 추가
+        addStudent(1, "김보민", 20, "IoT", 3.8);
+        addStudent(2, "박진영", 21, "IoT", 3.9);
+        addStudent(3, "오신혁", 22, "IoT", 3.7);
+        addStudent(4, "김세훈", 23, "IoT", 3.8);
+
+        // 학생 전체 조회
+        printAllStudents();
+
+        // 학생 조회 (단건)
+        System.out.println("== 학생 조회 (단건) ");
+        findStudentById(1);
+        findStudentById(3);
+
+        // 학생 평점 업데이트
+        updateStudentGpa(2, 4.1);
+        updateStudentGpa(4, 4.5);
+
+        findStudentById(2);
+        findStudentById(4);
     }
 }
