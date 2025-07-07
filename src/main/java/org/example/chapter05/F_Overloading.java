@@ -22,8 +22,38 @@ package org.example.chapter05;
 // - 중복적으로 의미없이 생성하는 경우
 //      , 실질적으로 필요한 구현 메서드 찾기에 어려움 (복잡성 증가)
 
+class Calc {
+    // 오버로딩 성립조건: 메서드명 동일, 매개변수의 타입 || 개수 차이, 반환타입은 무관
+
+    // cf) 변수는 동일한 이름의 재정의 불가!
+    int a;
+    // long a; - 같은 스코프 내에 동일한 이름 불가!
+    { int a; } // - 다른 스코프에서는 동일한 이름 사용 가능!
+
+    int add (int a, int b) {
+        return a + b;
+    }
+    // long add (int a, int b) { return a + b; }
+    // : add(int, int)가 이미 정의되어 있음
+
+    // == 매개변수 타입 차이 == //
+    int add (short a, short b) { return a + b; }
+    double add (double a, double b) { return a + b; }
+    double add (int x, double y) { return x + y; }
+    double add (double x, int y) { return x + y; }
+
+    // == 매개변수 개수 차이 == //
+    int add(int a, int b, int c) { return a + b + c; }
+}
+
 public class F_Overloading {
     public static void main(String[] args) {
+        Calc calc = new Calc();
 
+        System.out.println(calc.add(10, 20)); // 30
+        System.out.println(calc.add(10, 20.1)); // 30.1
+        System.out.println(calc.add(10.1, 20)); // 30.1
+        System.out.println(calc.add(10.3, 20.5)); // 30.8
+        System.out.println(calc.add(10, 20, 30)); // 60
     }
 }
