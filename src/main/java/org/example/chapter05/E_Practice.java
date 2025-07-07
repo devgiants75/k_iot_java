@@ -16,7 +16,7 @@ class BaseballPlayer {
 
     // == 생성자 ==
     // +) 필드값 초기화 & 정적 변수 후위 증가
-    BaseballPlayer(String name, double battingAverage, int homeRuns {
+    BaseballPlayer(String name, double battingAverage, int homeRuns) {
         this.name = name;
         this.battingAverage = battingAverage;
         this.homeRuns = homeRuns;
