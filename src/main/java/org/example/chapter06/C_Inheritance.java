@@ -47,6 +47,7 @@ class Cat extends Mammal {
     Cat() {
         super(); // 생략되어 있어도 자동 호출
         // >> Mammal 클래스 내에 매개변수가 없는 생성자
+        System.out.println("빈 자식 생성자 - 인스턴스 생성");
     }
 
     Cat(String name) {
@@ -54,11 +55,42 @@ class Cat extends Mammal {
         // super() 메서드는 부모 클래스의 생성자를 가져오는 키워드
         // - 부모 클래스 내에 정의된 생성자를 형태 그대로 사용
         // - 여러 개의 생성자가 있는 경우 (오버로딩) super()의 형태도 다양할 수 있음
+
+        // this.name = name;
+    }
+
+    void displayCat() {
+        // 해당 클래스가 가진 인스턴스 변수에 접근: this
+        // >> 생략 가능 (지역변수와 충돌이 나지 않는 경우)
+        System.out.println("자식 이름: " + name);
+        System.out.println("자식 이름: " + this.name);
+
+        // 부모 클래스가 가진 인스턴스 변수에 접근: super
+        // >> 생략 불가!
+        System.out.println("부모 이름: " + super.name);
     }
 }
 
+// cf) super
+//      : 부모 클래스로 생성된 객체 그 자체
+//      - 부모 클래스 내의 필드와 메서드에 접근 (.연산자)
+//      >> super.필드명; / super.메서드명();
+//      >> super(); - 부모 클래스 내의 생성자 호출
+
 public class C_Inheritance {
     public static void main(String[] args) {
-        Cat cat1 = new Cat(); // 빈 부모 생성자 - 인스턴스 생성
+        Cat cat1 = new Cat();
+        // 빈 부모 생성자 - 인스턴스 생성
+        // 빈 자식 생성자 - 인스턴스 생성
+
+        Cat cat2 = new Cat("나비");
+        System.out.println(cat2.name);
+
+        cat2.displayCat();
+        // 자식 이름: Child (name)
+        // 자식 이름: Child (this.name)
+        // 부모 이름: 나비 (super.name)
+
+        cat2.displayMammal(); // 나비
     }
 }
