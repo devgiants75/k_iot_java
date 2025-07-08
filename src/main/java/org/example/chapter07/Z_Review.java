@@ -7,7 +7,7 @@ class Parent {
 }
 
 class Child extends Parent {
-    void greet() { System.out.println("Hello from Child"); }
+    // void greet() { System.out.println("Hello from Child"); }
 }
 // ① final 클래스는 상속이 불가능하다.
 // ② final 메서드는 오버라이딩이 불가능하다.
