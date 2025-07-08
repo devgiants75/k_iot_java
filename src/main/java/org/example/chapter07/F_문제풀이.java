@@ -24,5 +24,5 @@ class ABook {
 // 다음 설명이 참이면 O, 거짓이면 X를 선택하시오.
 // : private으로 선언된 변수는 같은 클래스 내부에서만 접근 가능하며, 상속받은 자식 클래스에서는 접근할 수 있다. (O/X)
 
-public class Z_Review {
+public class F_문제풀이 {
 }
