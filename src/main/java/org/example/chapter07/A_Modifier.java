@@ -1,5 +1,17 @@
 package org.example.chapter07;
 
+// cf) 자바 패키지 또는 클래스 파일 간의 코드 연결
+// : import 문을 사용
+
+// 1) 같은 패키지 내: import 클래스파일명;
+// 2) 다른 패키지 내: import 패키지경로.패키지명.클래스파일명;
+//import org.example.otherPackage.OtherClass;
+//import org.example.otherPackage.PublicClass;
+
+import org.example.otherPackage.*;
+// : * 기호는 전체를 의미
+// - 다만, 프로그램의 향성성을 위해 권장하지 않음
+
 // == 접근제한자(제어자) == //
 // : 클래스, 변수, 메서드의 접근 범위를 제어
 // - 외부로부터 데이터를 보호, 객체 간의 의존성을 최소화하는 역할
@@ -14,8 +26,6 @@ package org.example.chapter07;
 // cf) 클래스 자체에 접근 제어자 사용 X
 //      : 중첩 클래스가 아닌 경우 명시적인 접근제어자 사용 불가
 //      >> 클래스 파일의 경우 작성 가능!
-
-import org.example.otherPackage.OtherClass;
 
 // protected class ProtectedClass {} - 클래스 자체에 사용 불가! (중첩클래스만 가능)
 class Modifier {}
@@ -56,6 +66,9 @@ class ProtectedClass extends OtherClass {
     }
 }
 
+// 4) public
+// : 클래스나 패키지 위치와 상관없이 접근 가능
+
 public class A_Modifier {
     public static void main(String[] args) {
         // PrivateClass 외부에서 private 필드에 접근
@@ -74,5 +87,11 @@ public class A_Modifier {
         // 다른 패키지의 필드(protected)
         // 다른 패키지의 메서드(protected)
         // protectedClass.myField; - A_Modifier 클래스에서 상속받지 않았기 때문에 접근 불가!
+
+        PublicClass publicClass = new PublicClass();
+        System.out.println(publicClass.publicField);
+        publicClass.publicMethod();
+        // 어디서든지 접근 가능한 필드
+        // 어디서든지 접근 가능한 메서드
     }
 }
