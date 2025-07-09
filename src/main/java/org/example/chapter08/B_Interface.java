@@ -65,19 +65,52 @@ interface PlayingCard {
 // interface 구현 방법
 // class 클래스명 implements 인터페이스명 {}
 class Card implements PlayingCard {
+
+    private String cardNumber;
+    private String cardKind;
+
+    Card (String cardNumber, String cardKind) {
+        this.cardNumber = cardNumber;
+        this.cardKind = cardKind;
+    }
+
+    // cf) 인터페이스 안의 추상 메서드를 구현한 클래스 메서드는 public 지정
     @Override
     public String getCardKind() {
-        return "";
+        return cardKind;
     }
 
     @Override
     public String getCardNumber() {
-        return "";
+        return cardNumber;
+    }
+
+    // 디폴트 메서드: 재정의 가능
+    // 정적 메서드: 재정의 불가!
+
+    @Override
+    public void defaultMethod() {
+        System.out.println("Card 클래스에서 재정의 된 디폴트 메서드");
     }
 }
 
 public class B_Interface {
     public static void main(String[] args) {
+        Card card = new Card("7", "HEART");
 
+        System.out.println(card.getCardKind()); // HEART
+        System.out.println(card.getCardNumber()); // 7
+
+        card.defaultMethod(); // Card 클래스에서 재정의 된 디폴트 메서드
+
+        // card.staticMethod(); // static 메서드는 해당 메서드에 포함된 인터페이스상에서만 호출 가능
+
+        PlayingCard.staticMethod(); // 정적 메서드입니다.
+
+        // 인터페이스 필드(상수) 사용
+        System.out.println(PlayingCard.CLOVER); // 1
+        System.out.println(PlayingCard.HEART); // 2
+        System.out.println(PlayingCard.DIAMOND); // 3
+        System.out.println(PlayingCard.SPADE); // 4
     }
 }
