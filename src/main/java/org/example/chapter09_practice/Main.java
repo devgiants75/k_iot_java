@@ -88,5 +88,27 @@ public class Main {
         } catch(UserNotFoundException e) {
             System.out.println("조회 실패: " + e.getMessage()); // 조회 실패: 사용자 ID에 100값이 없습니다.
         }
+
+        // 사용자 삭제
+        try {
+            User result = userService.getUserById(1);
+            System.out.println(result);
+
+            userService.deleteUser(1);
+            System.out.println("사용자가 정상적으로 삭제되었습니다.");
+
+            userService.getUserById(1); // 삭제 실패: 사용자 ID에 1값이 없습니다. (조회 실패)
+        } catch(UserNotFoundException e) {
+            System.out.println("삭제 실패: " + e.getMessage());
+        }
+
+        // 특정 이름 조회 (필터링)
+        String searchName = "김승민";
+        List<User> filteredUsers = userService.findUsersByName(searchName);
+
+        System.out.println("\n[" + searchName + "] 이름으로 조회된 사용자 목록: ");
+        for (User userData: filteredUsers) {
+            System.out.println(userData);
+        }
     }
 }
