@@ -40,8 +40,53 @@ package org.example.chapter09_practice;
 // EX) 학생 등록하기, 학생 정보 가져오기, 학생 삭제하기 등을 처리
 //      >> model을 가지고 일을 하는 곳
 
+import org.example.chapter09_practice.exception.UserNotFoundException;
+import org.example.chapter09_practice.model.User;
+import org.example.chapter09_practice.service.UserService;
+import org.example.chapter09_practice.service.UserServiceImpl;
+
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        // cf) 원본 리스트 반환의 문제점!!!
+//        UserServiceImpl userService = new UserServiceImpl();
+//        List<User> list = userService.getAllUsers();
 
+//         ArrayList 내부의 요소를 모두 제거하는 메서드: .clear()
+//        list.clear();
+
+        // == 로직 실행 == //
+        UserService userService = new UserServiceImpl();
+
+        // 사용자 추가
+        userService.addUser(new User(1, "권민현", "qwe123@example.com"));
+        userService.addUser(new User(2, "안미향", "asd456@example.com"));
+        userService.addUser(new User(3, "김승민", "uio789@example.com"));
+
+        // 전체 조회
+        List<User> users = userService.getAllUsers();
+        for (User user: users) {
+            System.out.println(user);
+            // System.out.println(user.toString());
+        }
+
+        // 이메일 수정
+        try {
+            userService.updateUserEmail(1, "asd000@example.com");
+        } catch (UserNotFoundException e) {
+            System.out.println("수정 실패: " + e.getMessage());
+        }
+
+        // 단건 회원 조회 (id)
+        User user = userService.getUserById(1);
+        System.out.println(user);
+
+        // 존재하지 않는 사용자 검색 (예외 발생 테스트)
+        try {
+            userService.getUserById(100);
+        } catch(UserNotFoundException e) {
+            System.out.println("조회 실패: " + e.getMessage()); // 조회 실패: 사용자 ID에 100값이 없습니다.
+        }
     }
 }
