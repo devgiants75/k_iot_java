@@ -48,10 +48,10 @@ public class Main {
             System.out.println("");
             System.out.println("=== Inventory Management System ===");
             System.out.println("1. 제품 추가");
-            System.out.println("2. 제품 전체 조회");
-            System.out.println("3. 제품 수정 (가격)");
-            System.out.println("4. 제품 삭제");
-            System.out.println("5. 제품 검색 (카테고리)");
+            System.out.println("2. 제품 수정 (가격)");
+            System.out.println("3. 제품 삭제");
+            System.out.println("4. 제품 검색 (카테고리)");
+            System.out.println("5. 제품 전체 조회");
             System.out.println("0. 프로그램 종료");
             System.out.println("메뉴를 선택해주세요 >> ");
 
