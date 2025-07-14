@@ -90,8 +90,44 @@ class AllergyStudent implements LunchMenuInterface {
 
 // >> 추상 클래스와 인터페이스를 사용하여 상속, 구현을 통한 클래스 관계 구축
 
-public class A_OOP {
-    public static void main(String[] args) {
+// 3. LSP(Liskov Substitution Principle, 리스코프 치환 원칙)
+// : 상위 클래스의 객체를 하위 클래스의 객체로 치환하더라도 프로그램의 동작이 일관되게 유지되어야 함
+// - 자식 클래스는 부모 클래스의 기능을 완전하게 대체할 수 있음.
+// >> 업캐스팅 상태에서 부모의 메서드 사용 시 동작 가능
 
+// 1) 잘못된 설계 예시 - Student의 동작과 InjuredStudent가 같은 메서드를 통해 서로 다른 행동을 실행함
+class Student {
+    void playSoccer() {
+        System.out.println("축구를 할 수 있습니다.");
     }
+}
+
+class InjuredStudent extends Student {
+    @Override
+    void playSoccer() {
+        // 부모가 가진 기능의 일관성 X
+        System.out.println("다쳐서 축구를 할 수 없습니다.");
+    }
+}
+
+// 2) 올바른 설계 예시 - 부모의 activity()라는 추상 메서드를 각 자식의 의도에 맞게 재정의
+abstract class StudentAbstract {
+    abstract void activity();
+}
+
+class SoccerPlayer extends StudentAbstract {
+    @Override
+    void activity() {
+        System.out.println("축구를 합니다.");
+    }
+}
+
+class InjuredSoccerPlayer extends StudentAbstract {
+    @Override
+    void activity() {
+        System.out.println("다쳐서 축구를 할 수 없습니다. 재활 훈련을 합니다.");
+    }
+}
+
+public class A_OOP {
 }
