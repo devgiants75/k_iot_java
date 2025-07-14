@@ -125,8 +125,13 @@ public class Main {
         System.out.println("새 가격을 입력해주세요.");
         int newPrice = sc.nextInt();
         sc.nextLine();
-        service.updateItemPrice(id, newPrice);
-        System.out.println("제품 가격이 성공적으로 수정되었습니다.");
+        boolean result = service.updateItemPrice(id, newPrice);
+
+        if (result) {
+            System.out.println("제품 가격이 성공적으로 수정되었습니다.");
+        } else {
+            System.out.println("해당 하는 제품이 없습니다. 수정할 수 없습니다.");
+        }
     }
 
     private static void deleteItem(InventoryService service, Scanner sc) {

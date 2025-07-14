@@ -7,6 +7,6 @@ import java.util.List;
 public interface InventoryService {
     void addItem(Item item);
     List<Item> getItemsByCategory(String category);
-    void updateItemPrice(String itemId, int newPrice);
+    boolean updateItemPrice(String itemId, int newPrice);
     void deleteItem(String itemId);
 }

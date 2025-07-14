@@ -33,13 +33,19 @@ public class InventoryServiceImpl implements InventoryService{
     }
 
     @Override
-    public void updateItemPrice(String itemId, int newPrice) {
+    public boolean updateItemPrice(String itemId, int newPrice) {
+        boolean isUpdated = false;
+
         // 수정할 Item이 저장소에 존재하는지 확인
         Item item = repository.findById(itemId);
 
         if (item != null) {
             item.setPrice(newPrice);
+            isUpdated = true;
+            return isUpdated;
         }
+
+        return isUpdated;
     }
 
     @Override
