@@ -1,5 +1,13 @@
 package org.example.chapter12;
 
+import org.example.chapter12.controller.StudentController;
+import org.example.chapter12.model.Student;
+import org.example.chapter12.view.StudentView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  * == 학생 관리 시스템 ==
  * : MVC 패턴 적용 + DTO(데이터 처리)
@@ -33,6 +41,16 @@ package org.example.chapter12;
 
 public class StudentManagement {
     public static void main(String[] args) {
+        List<Student> dummyStudents = new ArrayList<>();
+        dummyStudents.add(new Student(1, "이승아", 25, "1111"));
+        dummyStudents.add(new Student(2, "이도경", 29, "2222"));
+        dummyStudents.add(new Student(3, "조승범", 30, "1234"));
+        dummyStudents.add(new Student(4, "김명진", 32, "5678"));
 
+        StudentController controller = new StudentController(dummyStudents);
+        Scanner sc = new Scanner(System.in);
+
+        StudentView view = new StudentView(sc, controller);
+        view.showMenu();
     }
 }
