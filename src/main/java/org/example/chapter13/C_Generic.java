@@ -53,6 +53,7 @@ class Furniture extends Product {
 
 // 3. 할인 정책 클래스
 class DiscountPolicy {
+    // applyDiscount(List<Product> products, double discountRate) { ... }
     public static double applyDiscount(List<? extends Product> products, double discountRate) {
         // 리스트 컬렉션 프레임워크 형식에 Product 타입을 가지거나
         //      , 해당 타입의 하위 클래스(전자, 가구)만을 허용
@@ -76,6 +77,15 @@ public class C_Generic {
         electronics.add(new Electronics("세탁기", 130));
         electronics.add(new Electronics("인덕션", 80));
 
+        // List<Product>에 List<Electronics>가 형 변환 ?!?
+        // : 제네릭 타입은 내부 요소의 형 변환을 지원하지 않습니다!
+        // >> 제네릭은 공변성을 지원하지 않음
+
+        // cf) 공변성
+        //      : 프로그램의 타입 시스템 중 하나
+        //      - 제네릭 타입에서 상위 타입 관계가 유지되는 것
+        //      >> Electronics가 Product의 하위 클래스!
+        //      >> 리스트 사이에 상속 관계는 없다!
         double totalElectronics = DiscountPolicy.applyDiscount(electronics, 0.1);
         System.out.println("총 가전 할인액: " + totalElectronics + "원"); // 총 가전 할인액: 31.8원
 
