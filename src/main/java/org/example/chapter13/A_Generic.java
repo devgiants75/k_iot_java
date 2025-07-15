@@ -31,6 +31,9 @@ package org.example.chapter13;
 *       <E>: Element (컬렉션에서 주로 사용)
 * */
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Pair<K, V> {
     private K key;
     private V value;
@@ -48,6 +51,8 @@ class Pair<K, V> {
     // - 제네릭 타입은 반환타입, 매개변수, 내부 지역 변수 선언 등 다양하게 사용 가능
 
     // [접근제한자] <제네릭타입> 반환타입 메서드명(매개변수...) { 구현부 }
+    // cf) static 멤버에서는 클래스의 제네릭 타입 매개 변수 사용이 불가
+    //      >> static 메서드는 제네릭 타입을 직접 선언 (<T>: 메서드 선언 앞에 필수 명시)
     static <T> void print(T value) {
         System.out.println(value);
     }
@@ -69,5 +74,41 @@ public class A_Generic {
         // cf) 자바의 제네릭은 타입 명시를 생략해도 자동으로 타입을 추론
         Pair.print("Hello"); // T에 String 추론
         Pair.print(200); // T에 Integer 추론
+
+        // == 제네릭 클래스 사용 == //
+        // 클래스명<제네릭 타입> 인스턴스명 = new 클래스명<>();
+
+        // cf) 제네릭 타입 명시 필수 X
+        //      : 제네릭 타입의 구조에 값이 들어올 경우 해당 값으로 자동 유추
+
+        Pair<Integer, String> pair1 = new Pair<>(100, "안녕");
+        Pair<Integer, String> pair2 = new Pair<Integer, String>(200, "Hello");
+        // >> 좌항의 클래스타입은 필수!
+
+        // cf) 제네릭 타입의 경우 기본 타입 직접 사용 불가!
+        //      >> Wrapper 클래스 사용
+        // - int >> Integer
+        // - double >> Double
+        // - char >> Character
+
+        System.out.println(pair1.getKey()); // 100
+        System.out.println(pair1.getValue()); // 안녕
+
+        Pair<String, Integer> pair3 = new Pair<>("Hi", 999);
+
+        // Pair<int, char> pair4 = new Pair<int, char>();
+        // >> 타입 인수는 기본 타입일 수 없습니다
+
+        // cf) 제네릭 타입은 컴파일 이후 실제 타입 정보가 사라지고 Object로 변환
+        //      - 런타임 시에는 Object로 동작
+        //      >> 타입 소거(Type Erasure)
+        List<String> list = new ArrayList<>();
+        list.add("Hello");
+        // 컴파일 시 리스트 내부 요소가 String 인지 검사
+        // >> 런타임 시에는 List<String>이 List로 취급됨 (타입 정보는 사라짐)
+
+        // 타입 소거의 제약사항
+        // - list instanceof List<String> (사용 불가)
+        // - 배열을 제네릭으로 만들 수 없다. (new T[]) 불가!
     }
 }
