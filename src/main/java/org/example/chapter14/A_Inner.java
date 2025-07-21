@@ -130,11 +130,41 @@ public class A_Inner {
         OuterClass outerClass2 = new OuterClass();
         outerClass2.outerMethod();
 
+        System.out.println("=== 익명 (내부) 클래스 ===");
+        // 클래스타입 변수명 = new 클래스명() {
+        //      메서드 구현(추상클래스/인터페이스의 추상 메서드)
+        // }
 
+        // new 클래스생성자호출();
+        AbstractClass abstractClass1 = new AbstractClass() {
+            @Override
+            void display() {
+                System.out.println("익명 내부 클래스 - 추상 클래스1");
+            }
+        }; // 세미콜론 필수!
 
+        abstractClass1.display();
 
+        AbstractClass abstractClass2 = new AbstractClass() {
+            @Override
+            void display() {
+                System.out.println("익명 내부 클래스 - 추상 클래스2");
+            }
+        };
 
+        abstractClass2.display();
 
+        System.out.println(abstractClass1 == abstractClass2); // false
 
+        // >> 클래스 정의가 외부에서 재사용 될 필요가 없거나, 단 한 번의 사용 목적에 유용
+
+        InterfaceClass interfaceClass = new InterfaceClass() {
+            @Override
+            public void something() {
+                System.out.println("안녕하세요! 인터페이스로 구현한 익명 클래스입니다!");
+            }
+        };
+
+        interfaceClass.something();
     }
 }
