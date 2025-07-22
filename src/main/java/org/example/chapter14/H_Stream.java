@@ -159,8 +159,15 @@ public class H_Stream {
 //                .collect(Collectors.groupingBy(x -> x.length()));
                 .collect(Collectors.groupingBy(String::length));
 
+        Map<String, List<String>> groupedName = names.stream()
+                        .collect(Collectors.groupingBy(String::toUpperCase));
+
         grouped.forEach((length, group) -> {
             System.out.println(length + "글자: " + group);
+        });
+
+        groupedName.forEach((key, group) -> {
+            System.out.println(key + ": " + group);
         });
     }
 }
