@@ -3,6 +3,7 @@ package org.example.chapter14;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /*
 * == 람다식 ==
@@ -44,6 +45,17 @@ import java.util.function.Predicate;
 * interface Consumer<T> {
 *       void accept(T t);
 * }
+*
+* 4. Supplier<T>(공급하다)
+* : 값을 공급(생성)하는 데 사용, 입력 값이 필요로 하지 X
+* : 외부에서 값을 가져오거나, 데이터를 생성하여 반환하는 역할
+* : 메서드
+*       - T get(): 반환
+*
+* @FunctionalInterface
+ * interface Supplier<T> {
+ *       T get();
+ * }
 * */
 public class E_Lambda {
     public static void main(String[] args) {
@@ -87,5 +99,17 @@ public class E_Lambda {
         combinedConsumer.accept("123");
         // 123
         // 3
+
+
+        System.out.println("== Supplier ==");
+
+        // Math.random(): 0.0과 1.0 사이의 무작위 실수를 반환
+        Supplier<Double> randomValue = () -> Math.random();
+
+//        Supplier<Double> random = () -> {
+//            return Math.random();
+//        };
+
+        System.out.println(randomValue.get());
     }
 }
