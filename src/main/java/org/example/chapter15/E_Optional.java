@@ -79,7 +79,9 @@ public class E_Optional {
         System.out.println(optional2.orElseGet(() -> "값을 생성하여 반환")); // 값을 생성하여 반환
 
         try {
-            optional3.orElseThrow(() -> new Error("값이 없을 경우 예외 발생"));
+            // cf) Throwable >> Exception(예외), Error(오류)
+            optional3.orElseThrow(() -> new Error("값이 없을 경우 예외 발생")); // 런타임
+            // optional3.orElseThrow(() -> new Exception("예외 발생")); // 컴파일
         } catch (Error e) {
             System.out.println("예외가 발생하였습니다: " + e.getMessage());
             // 예외가 발생하였습니다: 값이 없을 경우 예외 발생
