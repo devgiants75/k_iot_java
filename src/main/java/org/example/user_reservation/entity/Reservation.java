@@ -14,8 +14,21 @@ public class Reservation {
     private final Date reservationTime; // 예약 시간
 
     // 활성화 유무를 저장
+    // : 해당 예약의 활성화 상태를 저장
+    // - true: 예약 완료 (중)
+    // - false: 예약 취소
     private boolean isActive = true;
 
+    // 예약 취소 메서드
+    public void cancel() {
+        this.isActive = false;
+    }
 
+    @Override
+    public String toString() {
+        String isActiveMessage = isActive ? "예약 중" : "예약 취소";
 
+        return "[예약 ID: " + reservationId + ", 예약자 ID: " + userId + ", 예약 일자: " +
+                reservationTime + ", 예약 상태: " + isActiveMessage;
+    }
 }
