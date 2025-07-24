@@ -1,5 +1,7 @@
 package org.example.user_reservation;
 
+import org.example.user_reservation.controller.ReservationController;
+
 /*
 * === 프로젝트 개요 ===
 * : 온라인 예약 시스템
@@ -32,6 +34,7 @@ package org.example.user_reservation;
 * */
 public class Main {
     public static void main(String[] args) {
-
+        ReservationController controller = new ReservationController();
+        controller.run();
     }
 }

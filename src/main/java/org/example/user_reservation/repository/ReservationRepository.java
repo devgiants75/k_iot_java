@@ -24,8 +24,8 @@ public class ReservationRepository {
         return reservations.stream()
                 .filter(res -> res.getReservationId().equals(reservationId))
                 .findFirst(); // 검색된 조건에 일치하는 요소 중 제일 첫 번째 요소를 Optional로 반환
-
     }
+
     // : 예약자 정보와 일치하는 예약을 조회 (userId를 사용)
     // +) 요청(사용자 Id), 응답(예약 정보 리스트)
     public List<Reservation> findByUserId(String userId) {

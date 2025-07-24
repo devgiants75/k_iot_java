@@ -85,4 +85,9 @@ public class UserServiceImpl implements UserService {
         // 로그인 중: true, 로그인 X: false
         return result;
     }
+
+    @Override
+    public Optional<User> findUserById(String userId) {
+        return userRepository.findByUserId(userId);
+    }
 }

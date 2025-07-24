@@ -49,6 +49,7 @@ public class ReservationController {
             System.out.println("숫자를 입력해주세요.");
             sc.next();
         }
+
         return sc.nextInt();
     }
 
