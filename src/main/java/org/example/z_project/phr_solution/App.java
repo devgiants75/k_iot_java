@@ -137,6 +137,15 @@ public class App {
                 System.out.println("프로그램을 종료합니다. 이용해주셔서 감사합니다 :)");
                 return false;
             }
+            case 11: { // 진단별 건강 기록 수 카운팅 (Map<String, Long>)
+
+            }
+            case 12: { // 특정 연령대 환자의 건강 기록 목록 (예: 60대 이상)
+
+            }
+            case 13: { // 특정 기간 내 진료 기록 조회 (날짜 필터링)
+
+            }
             default: {
                 System.out.println("잘못된 선택입니다. 유효한 메뉴를 선택해주세요.");
                 break;

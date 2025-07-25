@@ -20,6 +20,13 @@ public class MenuPrinter {
         System.out.println("9. 건강 기록 삭제");
 
         System.out.println("10. 프로그램 종료");
+
+        // ================ 연습용 예제 =================//
+        System.out.println("== 연습용 문제 ==");
+        System.out.println("11. 진단별 건강 기록 수");
+        System.out.println("12. 연령대별 건강 기록 조회");
+        System.out.println("13. 특정 기간 기록 조회");
+
         System.out.print("메뉴를 선택하세요 >> ");
     }
 }
