@@ -1,6 +1,6 @@
-package org.example.user_reservation;
+package org.example.z_project.user_reservation;
 
-import org.example.user_reservation.controller.ReservationController;
+import org.example.z_project.user_reservation.controller.ReservationController;
 
 /*
 * === 프로젝트 개요 ===
