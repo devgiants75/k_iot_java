@@ -42,6 +42,11 @@ public class App {
             // 환자 관련 기능
             case 1: {
                 PatientCreateRequestDto requestDto = InputHandler.createPatientRequest();
+
+                if (requestDto == null) {
+                    System.out.println("필수 입력값을 유효하게 입력해야합니다.");
+                    break;
+                }
                 patientController.registerPatient(requestDto);
                 break;
             }
@@ -69,6 +74,12 @@ public class App {
             case 4: {
                 long id = InputHandler.getIdInput();
                 PatientUpdateRequestDto requestDto = InputHandler.updatePatientRequest();
+
+                if (requestDto == null) {
+                    System.out.println("필수 입력값을 유효하게 입력해야합니다.");
+                    break;
+                }
+
                 patientController.updatePatient(id, requestDto);
                 break;
             }
